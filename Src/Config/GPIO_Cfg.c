@@ -44,7 +44,7 @@
  *that will configure a GPIO pin according to the entered parameters in the structure
  */
  
- const GpioConfiguration config_1 ={ PortF, pin3, gpio_output,gpio_high };
+ const  GpioConfiguration config_1 ={ PortF, pin3, gpio_output,gpio_high };
 
 
 /******************************************************************************
@@ -58,8 +58,9 @@
 * \Return value:   : Sconfig_1   struct describe which port and pin and it's level                               
 *******************************************************************************/
 const GpioConfiguration* config_get(void) {
-	return (const GpioConfiguration*) config_1;
+	return ((const GpioConfiguration*)config_1);
 }
+
 
 /**********************************************************************************************************************
  *  END OF FILE: FileName.c

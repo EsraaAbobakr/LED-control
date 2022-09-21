@@ -59,7 +59,10 @@
 * \Parameters (out): None                                                      
 * \Return value:   : None
 *******************************************************************************/
-void GPIO_Init (const GpioConfiguration* const);/*
+void GPIO_Init (const GpioConfiguration* const);
+extern void Gpio_Dir_set(GpioPorts port, GpioPins pin,GpioPinDirection direction);
+extern void Gpio_PinWrite(GpioPorts port, GpioPins pin, GpioPinLevel level);
+/*
 extern void Gpio_Init(const GpioConfiguration* const cnfg_table,
 		uint8_t cnfgTable_size);
 

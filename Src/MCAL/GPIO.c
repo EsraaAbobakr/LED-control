@@ -52,14 +52,39 @@
 void GPIO_Init (const GpioConfiguration* const cnfg_1)
 {
 	RCGCGPIO = (1 << cnfg_1->port);
+	if (cnfg_1->direction == gpio_output)
+			/*pin is output pin*/
+			*GpioDataDIR[cnfg_1->port] |= (1 << cnfg_1->pin);
+	else
+			/*pin is input*/
+			*GpioDataDIR[cnfg_1->port] &= ~(1 << cnfg_1->pin);
 	
-	
+/*digital enable for the pin in this port */
+		*GpioDEN[cnfg_1->port] |= (1 << cnfg_1->pin);
 
+
+		//set state of the pin
+		if (cnfg_1->level == gpio_high)
+			//set pin high
+			*GpioDataReg[cnfg_1->port] |= (1 << cnfg_1->pin);
+		else
+			*GpioDataReg[cnfg_1->port] |= (1 << cnfg_1->pin);
 
 	
 
 }
-
+void Gpio_Dir_set(GpioPorts port, GpioPins pin, GpioPinDirection direction) {
+	if (direction == gpio_input)
+		*GpioDataDIR[port] |= (1 << pin);
+	else
+		*GpioDataDIR[port] &= ~(1 << pin);
+}
+void Gpio_PinWrite(GpioPorts port, GpioPins pin, GpioPinLevel level) {
+	if (level == gpio_high)
+		*GpioDataReg[port] |= (1 << pin);
+	else
+		*GpioDataReg[port] &= ~(1 << pin);
+}
 /**********************************************************************************************************************
  *  END OF FILE: IntCrtl.c
  *********************************************************************************************************************/
