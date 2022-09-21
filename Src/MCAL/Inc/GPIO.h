@@ -10,11 +10,13 @@
  *********************************************************************************************************************/
 #ifndef GPIO_H
 #define GPIO_H
-
+#include "GPIO_Cfg.h"
+#include "Std_Types.h"
+#include "Mcu_Hw.h"
 /**********************************************************************************************************************
  * INCLUDES
  *********************************************************************************************************************/
-#include "Std_Types.h"
+
 
 
 /**********************************************************************************************************************
@@ -57,7 +59,7 @@
 * \Parameters (out): None                                                      
 * \Return value:   : None
 *******************************************************************************/
-void GPIO_Init (uint8);
+void GPIO_Init (const GpioConfiguration* const);/*
 extern void Gpio_Init(const GpioConfiguration* const cnfg_table,
 		uint8_t cnfgTable_size);
 
@@ -67,7 +69,7 @@ extern GpioPinDirection_t Gpio_Dir_get(GpioPorts port, GpioPins pin);
 
 extern void Gpio_PinWrite(GpioPorts port, GpioPins pin, GpioPinState_t state);
 extern void Gpio_PinToggle(GpioPorts port, GpioPins pin);
-extern int32_t Gpio_PinRead(GpioPorts port, GpioPins pin);
+extern int32_t Gpio_PinRead(GpioPorts port, GpioPins pin);*/
 #endif  /* IntCrtl_H */
 
 /**********************************************************************************************************************

@@ -44,8 +44,7 @@
  *that will configure a GPIO pin according to the entered parameters in the structure
  */
  
- 
-const GpioConfiguration config_1 ={ PortF, pin3, gpio_output,gpio_high };
+ const GpioConfiguration config_1 ={ PortF, pin3, gpio_output,gpio_high };
 
 
 /******************************************************************************
