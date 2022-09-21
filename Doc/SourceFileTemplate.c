@@ -1,7 +1,7 @@
 /**********************************************************************************************************************
  *  FILE DESCRIPTION
  *  -----------------------------------------------------------------------------------------------------------------*/
-/**        \file  GPIO_Cfg.c
+/**        \file  FileName.c
  *        \brief  
  *
  *      \details  
@@ -12,7 +12,7 @@
 /**********************************************************************************************************************
  *  INCLUDES
  *********************************************************************************************************************/
-#include "GPIO_Cfg.h"
+#include "Std_Types.h"
 
 /**********************************************************************************************************************
 *  LOCAL MACROS CONSTANT\FUNCTION
@@ -38,28 +38,22 @@
  *  GLOBAL FUNCTIONS
  *********************************************************************************************************************/
 
-/**
- *The following is the Gpio configuration table it is simply an
- *array of Gpioconfiguration structure where every entry in this array is a structure
- *that will configure a GPIO pin according to the entered parameters in the structure
- */
- 
- 
-const GpioConfiguration config_1 ={ PortF, pin3, gpio_output,gpio_high };
-
 
 /******************************************************************************
-* \Syntax          : const GpioConfiguration* config_get(void)
-* \Description     : function that will return a pointer to first element in config variable                                   
+* \Syntax          : Std_ReturnType FunctionName(AnyType parameterName)        
+* \Description     : Describe this service                                    
 *                                                                             
 * \Sync\Async      : Synchronous                                               
 * \Reentrancy      : Non Reentrant                                             
-* \Parameters (in) : None                  
-* \Parameters (out):                                                      
-* \Return value:   : Sconfig_1   struct describe which port and pin and it's level                               
+* \Parameters (in) : parameterName   Parameter Describtion                     
+* \Parameters (out): None                                                      
+* \Return value:   : Std_ReturnType  E_OK
+*                                    E_NOT_OK                                  
 *******************************************************************************/
-const GpioConfiguration* config_get(void) {
-	return (const GpioConfiguration*) config_1;
+Std_ReturnType FunctionName(AnyType parameterName)
+{
+	
+	
 }
 
 /**********************************************************************************************************************
