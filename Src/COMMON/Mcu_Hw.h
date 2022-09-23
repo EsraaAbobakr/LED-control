@@ -47,12 +47,12 @@
 
  
 static volatile uint32 * const GpioDataReg[NumberOfPorts]={
-(uint32*)((PortA)+(GPIO_O_DATA)+(0x3fc)),   // Data register for port A
-(uint32*)((PortB)+(GPIO_O_DATA)+(0x3fc)),   // Data register for port B
-(uint32*)((PortC)+(GPIO_O_DATA)+(0x3fc)),   // Data register for port C
-(uint32*)((PortD)+(GPIO_O_DATA)+(0x3fc)),   // Data register for port D
-(uint32*)((PortE)+(GPIO_O_DATA)+(0x3fc)),   // Data register for port E
-(uint32*)((PortF)+(GPIO_O_DATA)+(0x3fc)),   // Data register for port F
+(uint32*)((PortA)+(GPIO_O_DATA)+(0x3fc)),   /*// Data register for port A*/
+(uint32*)((PortB)+(GPIO_O_DATA)+(0x3fc)),   /*// Data register for port B*/
+(uint32*)((PortC)+(GPIO_O_DATA)+(0x3fc)),   /*// Data register for port C*/
+(uint32*)((PortD)+(GPIO_O_DATA)+(0x3fc)),   /*// Data register for port D*/
+(uint32*)((PortE)+(GPIO_O_DATA)+(0x3fc)),   /*// Data register for port E*/
+(uint32*)((PortF)+(GPIO_O_DATA)+(0x3fc)),   /*// Data register for port F*/
 };
 
 //------------------------------------------------------------------------------------
