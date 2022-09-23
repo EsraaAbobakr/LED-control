@@ -63,9 +63,9 @@ void GPIO_Init (const GpioConfiguration* const cnfg_1)
 		*GpioDEN[cnfg_1->port] |= (1 << cnfg_1->pin);
 
 
-		//set state of the pin
+		/*set state of the pin*/
 		if (cnfg_1->level == gpio_high)
-			//set pin high
+			/*set pin high*/
 			*GpioDataReg[cnfg_1->port] |= (1 << cnfg_1->pin);
 		else
 			*GpioDataReg[cnfg_1->port] |= (1 << cnfg_1->pin);
@@ -73,7 +73,7 @@ void GPIO_Init (const GpioConfiguration* const cnfg_1)
 	
 
 }
-void Gpio_Dir_set(GpioPorts port, GpioPins pin, GpioPinDirection direction) {
+void Gpio_Dir_set(GpioPorts port, GpioPins pin, GpioPinDirection x) {
 	if (direction == gpio_input)
 		*GpioDataDIR[port] |= (1 << pin);
 	else

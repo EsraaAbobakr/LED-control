@@ -44,7 +44,7 @@
  *that will configure a GPIO pin according to the entered parameters in the structure
  */
  
- const  GpioConfiguration config_1 ={ PortF, pin3, gpio_output,gpio_high };
+  /*const static GpioConfiguration config_1 ={ PortF, pin3, gpio_output,gpio_high };*/
 
 
 /******************************************************************************
@@ -57,8 +57,12 @@
 * \Parameters (out):                                                      
 * \Return value:   : Sconfig_1   struct describe which port and pin and it's level                               
 *******************************************************************************/
-const GpioConfiguration* config_get(void) {
-	return ((const GpioConfiguration*)config_1);
+
+void Dio_WriteChannel(GpioConfiguration* cnfg_1 )
+{
+	 GPIO_Init ( cnfg_1);
+	 Gpio_Dir_set(cnfg_1->port, cnfg_1->pin, cnfg_1->direction);
+	Gpio_PinWrite(cnfg_1->port, cnfg_1->pin, cnfg_1->level);
 }
 
 

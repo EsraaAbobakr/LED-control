@@ -15,7 +15,7 @@
  *********************************************************************************************************************/
 #include <stdint.h>
 #include <stdlib.h>
-
+#include "GPIO.h"
 
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
@@ -93,8 +93,8 @@ typedef struct {
 ************************************************************
 prototype function ta return pointer to configuration table
 *************************************************************/
-const GpioConfiguration* config_get(void);
 
+void Dio_WriteChannel(GpioConfiguration* );
 
  
 #endif  /* GPIO_Cfg_H */
