@@ -60,7 +60,10 @@
 
 void Dio_WriteChannel(GpioConfiguration* cnfg_1 )
 {
-	 GPIO_Init ( cnfg_1);
+	
+	
+	
+	/* GPIO_Init ( cnfg_1->port, cnfg_1->pin,cnfg_1->direction, cnfg_1->level);*/
 	 Gpio_Dir_set(cnfg_1->port, cnfg_1->pin, cnfg_1->direction);
 	Gpio_PinWrite(cnfg_1->port, cnfg_1->pin, cnfg_1->level);
 }

@@ -12,6 +12,7 @@
 #define GPIO_H
 #include "Std_Types.h"
 #include "Mcu_Hw.h"
+/*#include "GPIO_Cfg.h""*/
 /**********************************************************************************************************************
  * INCLUDES
  *********************************************************************************************************************/
@@ -27,7 +28,8 @@
 #define PORTD		0X08
 #define PORTE		0X10
 #define PORTF		0X20
-
+#define Bit_Band_Reg(Addr,Bit)        ( ((Addr) & 0xF0000000) + 0x2000000 + (((Addr) &0xFFFFF) << 5) + ((Bit)<<2) )	
+#define Bit_Band_Access(Addr , Bit , Value)           (*((volatile uint32 *)Bit_Band_Reg( (Addr),(Bit))) = (Value))
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
  *********************************************************************************************************************/
@@ -58,9 +60,9 @@
 * \Parameters (out): None                                                      
 * \Return value:   : None
 *******************************************************************************/
-void GPIO_Init (const GpioConfiguration* const);
-extern void Gpio_Dir_set(GpioPorts port, GpioPins pin,GpioPinDirection direction);
-extern void Gpio_PinWrite(GpioPorts port, GpioPins pin, GpioPinLevel level);
+extern void GPIO_Init (uint32 port, uint32 pin,uint32 direction,uint32 level);
+extern void Gpio_Dir_set(uint8 port, uint8 pin,uint8 direction);
+extern void Gpio_PinWrite(uint8 port, uint8 pin, uint8 level);
 /*
 extern void Gpio_Init(const GpioConfiguration* const cnfg_table,
 		uint8_t cnfgTable_size);

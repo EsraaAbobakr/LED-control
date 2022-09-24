@@ -13,6 +13,7 @@
  *********************************************************************************************************************/
 
 #include "GPIO.h"
+
 /**********************************************************************************************************************
 *  LOCAL MACROS CONSTANT\FUNCTION
 *********************************************************************************************************************/	
@@ -49,38 +50,43 @@
 * \Parameters (out): None                                                      
 * \Return value:   : None
 *******************************************************************************/
-void GPIO_Init (const GpioConfiguration* const cnfg_1)
-{
-	RCGCGPIO = (1 << cnfg_1->port);
-	if (cnfg_1->direction == gpio_output)
+void GPIO_Init (uint32 e, uint32 h,uint32 r,uint32 t){
+
+	
+	
+	
+	Bit_Band_Access(0x400FE608,0X02,1) ;
+
+		/*(*(( volatile uint32_t *)0x400FE608)) |= (1 << e);*/
+	/*if (r == 1)*/
 			/*pin is output pin*/
-			*GpioDataDIR[cnfg_1->port] |= (1 << cnfg_1->pin);
-	else
+			/**GpioDataDIR[e] |= (1 << h);
+	else*/
 			/*pin is input*/
-			*GpioDataDIR[cnfg_1->port] &= ~(1 << cnfg_1->pin);
+			/**GpioDataDIR[e] &= ~(1 << h);*/
 	
 /*digital enable for the pin in this port */
-		*GpioDEN[cnfg_1->port] |= (1 << cnfg_1->pin);
+		/**GpioDEN[e] |= (1 << h);*/
 
 
 		/*set state of the pin*/
-		if (cnfg_1->level == gpio_high)
+		/*if (t == 1)*/
 			/*set pin high*/
-			*GpioDataReg[cnfg_1->port] |= (1 << cnfg_1->pin);
+			/**GpioDataReg[e] |= (1 << h);
 		else
-			*GpioDataReg[cnfg_1->port] |= (1 << cnfg_1->pin);
-
-	
+			*GpioDataReg[e] |= (1 << h);*/
 
 }
-void Gpio_Dir_set(GpioPorts port, GpioPins pin, GpioPinDirection x) {
-	if (direction == gpio_input)
+void Gpio_Dir_set(uint8 port, uint8 pin, uint8 direction) {
+		Bit_Band_Access(0x400FE608,0X02,1) ;
+
+	if (direction == 0)
 		*GpioDataDIR[port] |= (1 << pin);
 	else
 		*GpioDataDIR[port] &= ~(1 << pin);
 }
-void Gpio_PinWrite(GpioPorts port, GpioPins pin, GpioPinLevel level) {
-	if (level == gpio_high)
+void Gpio_PinWrite(uint8 port, uint8 pin, uint8 level) {
+	if (level == 1)
 		*GpioDataReg[port] |= (1 << pin);
 	else
 		*GpioDataReg[port] &= ~(1 << pin);

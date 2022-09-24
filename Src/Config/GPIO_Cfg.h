@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include "GPIO.h"
 
+
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
@@ -44,9 +45,7 @@
  *  GLOBAL DATA TYPES AND STRUCTURES
  *********************************************************************************************************************/
 /*Defining all GPIO PORTS*/
-typedef enum {
-	PortA, PortB, PortC, PortD, PortE, PortF
-} GpioPorts;
+typedef enum {Porta, Portb, Portc, Portd, Porte, Porf } GpioPorts;
 
 
 /*Defining every pin in every GPIO port*/

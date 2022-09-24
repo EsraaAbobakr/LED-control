@@ -14,21 +14,23 @@
 /**********************************************************************************************************************
  * INCLUDES
  *********************************************************************************************************************/
+#include <stdint.h>
+#include <stdlib.h>
 #include "Std_Types.h"
 
-#include "GPIO_Cfg.h"
 
 /**********************************************************************************************************************
  *  GLOBAL DATA TYPES AND STRUCTURES
  *********************************************************************************************************************/
 
-
+#define NumberOfPorts  8  
+#define NumberOfPins   8
 
 
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
-#define RCGCGPIO						*(*(( volatile uint32 *)0x400FE608))
+#define RCGCGPIOww						(*(( volatile uint32_t *)0x400FE608))
 #define GPIO_O_DATA             0x00000000  /* GPIO Data*/
 #define GPIO_O_DIR              0x00000400  /*GPIO Direction*/
 #define GPIO_O_DEN              0x0000051C  /*GPIO Digital Enable*/
@@ -55,7 +57,7 @@ static volatile uint32 * const GpioDataReg[NumberOfPorts]={
 (uint32*)((PortF)+(GPIO_O_DATA)+(0x3fc)),   /*// Data register for port F*/
 };
 
-//------------------------------------------------------------------------------------
+/*//------------------------------------------------------------------------------------*/
 static volatile uint32_t * const GpioDEN [NumberOfPorts]={
 (uint32_t*)((PortA)+(GPIO_O_DEN)),   // Digital Enable  register for port A
 (uint32_t*)((PortB)+(GPIO_O_DEN)),   // Digital Enable  register for port B

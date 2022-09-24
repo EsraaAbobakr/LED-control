@@ -9,8 +9,8 @@
 /**********************************************************************************************************************
 *  GLOBAL DATA PROTOTYPES
 *********************************************************************************************************************/
-static GpioPorts b=PORTA;
-static GpioPins c=pin0;
+static GpioPorts b=PORTF;
+static GpioPins c=pin1;
 typedef struct {
 	  GpioPorts b;
 	GpioPins c;
