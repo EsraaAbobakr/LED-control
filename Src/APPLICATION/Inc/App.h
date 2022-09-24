@@ -16,8 +16,9 @@
  *********************************************************************************************************************/
 #include "Std_Types.h"
 #include "LED.h"
+#include "IntCtrl.h"
+#include "SysCtrl.h"
 
- 
 #define 	LED_1			DIO_CONFIG_PORTA_PIN0
 
 

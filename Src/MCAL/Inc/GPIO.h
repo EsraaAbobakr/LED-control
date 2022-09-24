@@ -12,6 +12,7 @@
 #define GPIO_H
 #include "Std_Types.h"
 #include "Mcu_Hw.h"
+#include "Port_regs.h""
 /*#include "GPIO_Cfg.h""*/
 /**********************************************************************************************************************
  * INCLUDES
