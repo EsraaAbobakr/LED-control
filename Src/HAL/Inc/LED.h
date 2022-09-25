@@ -20,8 +20,8 @@ typedef struct {
 	GpioPins c;
 } DIO_CONFIG_PORTA_PIN0;
 
-void Led_TurnOn(DIO_CONFIG_PORTA_PIN0 LedChannel);
-void Led_Turnoff(DIO_CONFIG_PORTA_PIN0 LedChannel);
+void Led_TurnOn(void);
+void Led_Turnoff(void);
  void Led_control(uint16,uint16);
  
  #endif /* LED_H_ */

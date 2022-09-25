@@ -52,7 +52,13 @@
  *  LOCAL FUNCTION PROTOTYPES
  *********************************************************************************************************************/
  
- 
+ const IntCtrl_IRQCfgType IRQ_Cfg[NVIC_IQR_ACTIVE_NO]  ={
+	
+ { GPIO_PORTA  ,  2 , 1 },
+ { TIMER0A_16_32 ,  1  ,  0         },
+ { GPIO_PORTB ,  2  ,  0    },
+ { UART1     ,  3  ,     1  }
+ };
 static __inline  void set_PRIMASK(uint32 priMask)
 {
   /*register uint32 __regPriMask        __asm("primask");

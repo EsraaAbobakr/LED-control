@@ -79,9 +79,13 @@ typedef struct
 #define SYSCTL_BASE_ADDRESS									0x400FE000
 
 #define SYSCTL_RCGCGPIO										(*((volatile SYSCTL_RCGCGPIO_Tag*)(SYSCTL_BASE_ADDRESS+0x608)))
- 
-
-
+#define RCGCGPIO (*(( volatile unsigned long *)0x400FE608))
+#define RCGCGPIO_PORTA 1 //Enable clock for PORTA
+#define RCGCGPIO_PORTB 2 //Enable clock for PORTB
+#define RCGCGPIO_PORTC 3 //Enable clock for PORTC
+#define RCGCGPIO_PORTD 4 //Enable clock for PORTD
+#define RCGCGPIO_PORTE 5 //Enable clock for PORTE
+#define RCGCGPIO_PORTF 6 //Enable clock for PORTF
 
 #define GPIO_PORTA_GPIODATA           					(*((volatile uint32*)(GPIO_PORTA_BASE_ADDRESS+GPIO_GPIODATA_OFFSET)))
 #define GPIO_PORTB_GPIODATA           					(*((volatile uint32*)(GPIO_PORTB_BASE_ADDRESS+GPIO_GPIODATA_OFFSET)))

@@ -48,10 +48,23 @@
 #define OSCILLATOR_SOURCE    OSCSRC_MOSC
 #define XTAL_CLOCK_KHZ       16000
 
-
+/*regiters stsem tick*/
 #define STCTRL                                 (*((volatile STCTRL_BF*) (CORE_PERI_BASE+STCTRL_OFFSET)))
 #define STCURRENT                              (*((volatile uint32*)(CORE_PERI_BASE+STCURRENT_OFFSET)))
 #define STRELOAD                               (*((volatile uint32*)(CORE_PERI_BASE+STRELOAD_OFFSET)))
+	
+typedef struct
+{
+uint32
+	        EN        :1  ,
+	        INTEN     :1  ,
+	        CLK_SRC   :1  ,
+	                  :13 ,
+	        COUNT     :1  ,
+	                  :15 ;
+	
+}STCTRL_BF;
+
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
@@ -111,17 +124,7 @@ static volatile uint32 * const GpioDataDIR[NumberOfPorts]={
 
 
  //Systick
-typedef struct
-{
-uint32
-	        EN        :1  ,
-	        INTEN     :1  ,
-	        CLK_SRC   :1  ,
-	                  :13 ,
-	        COUNT     :1  ,
-	                  :15 ;
-	
-}STCTRL_BF;
+
 
 typedef struct 
 {
