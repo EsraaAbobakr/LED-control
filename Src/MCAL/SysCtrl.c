@@ -48,22 +48,7 @@ static void Enable_PeriphClock(void)
 	
 	
 }
-/**********************************************************************************************************************
- *  GLOBAL FUNCTIONS
- *********************************************************************************************************************/
 
-
-/******************************************************************************
-* \Syntax          : void SysCtrl_ClockInit(void)       
-* \Description     : Initialize clock for MCU                                   
-*                                                                             
-* \Sync\Async      : Synchronous                                               
-* \Reentrancy      : Non Reentrant                                             
-* \Parameters (in) : None                   
-* \Parameters (out): None                                                      
-* \Return value:   : None
-*                                                              
-*******************************************************************************/
  const SysCtrl_PeripheralGateType PeriGate_cfg[ACTIVATED_PERPH_GATES] = 
  {
 	  GPIOA_GATE , 
