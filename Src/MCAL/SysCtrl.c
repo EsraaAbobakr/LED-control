@@ -64,6 +64,13 @@ static void Enable_PeriphClock(void)
 * \Return value:   : None
 *                                                              
 *******************************************************************************/
+ const SysCtrl_PeripheralGateType PeriGate_cfg[ACTIVATED_PERPH_GATES] = 
+ {
+	  GPIOA_GATE , 
+	  GPIOF_GATE ,
+	  TIMR0_16_32 
+  
+ } ;
 void SysCtrl_ClockInit(void)
 {
 	 const uint32 freqNotPll[3] = { XTAL_CLOCK_KHZ , 16000 , 4000} ;

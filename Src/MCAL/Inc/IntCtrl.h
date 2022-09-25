@@ -74,6 +74,8 @@ extern const IntCtrl_IRQCfgType IRQ_Cfg[NVIC_IQR_ACTIVE_NO] ;
 * \Parameters (out): None                                                      
 * \Return value:   : None
 *******************************************************************************/
+
+
 void IntCrtl_Init(void);
  
 #endif  /* IntCrtl_H */

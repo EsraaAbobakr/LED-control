@@ -51,7 +51,6 @@
 /**********************************************************************************************************************
  *  LOCAL FUNCTION PROTOTYPES
  *********************************************************************************************************************/
- 
  const IntCtrl_IRQCfgType IRQ_Cfg[NVIC_IQR_ACTIVE_NO]  ={
 	
  { GPIO_PORTA  ,  2 , 1 },
@@ -59,9 +58,11 @@
  { GPIO_PORTB ,  2  ,  0    },
  { UART1     ,  3  ,     1  }
  };
+
+ 
 static __inline  void set_PRIMASK(uint32 priMask)
 {
-  /*register uint32 __regPriMask        __asm("primask");
+ /* register uint32 __regPriMask        __asm("primask");
   __regPriMask = (priMask);*/
 }
 
@@ -69,10 +70,9 @@ static __inline  void set_PRIMASK(uint32 priMask)
 
 static __inline void set_FAULTMASK(uint32 faultMask)
 {
- /* register uint32 __regFaultMask       __asm("faultmask");
+  /*register uint32 __regFaultMask       __asm("faultmask");
   __regFaultMask = (faultMask & (uint32)1U);*/
 }
- 
 
 /**********************************************************************************************************************
  *  LOCAL FUNCTIONS

@@ -94,8 +94,19 @@ typedef struct
 #define GPIO_PORTE_GPIODATA           					(*((volatile uint32*)(GPIO_PORTE_BASE_ADDRESS+GPIO_GPIODATA_OFFSET)))
 #define GPIO_PORTF_GPIODATA           					(*((volatile uint32*)(GPIO_PORTF_BASE_ADDRESS+GPIO_GPIODATA_OFFSET)))
  
-
-
+#define GPIO_PORTA_GPIODIR           					(*((volatile uint32*)(GPIO_PORTA_BASE_ADDRESS+GPIO_GPIODIR_OFFSET)))
+#define GPIO_PORTB_GPIODIR           					(*((volatile uint32*)(GPIO_PORTB_BASE_ADDRESS+GPIO_GPIODIR_OFFSET)))
+#define GPIO_PORTC_GPIODIR          					(*((volatile uint32*)(GPIO_PORTC_BASE_ADDRESS+GPIO_GPIODIR_OFFSET)))
+#define GPIO_PORTD_GPIODIR           					(*((volatile uint32*)(GPIO_PORTD_BASE_ADDRESS+GPIO_GPIODIR_OFFSET)))
+#define GPIO_PORTE_GPIODIR          					(*((volatile uint32*)(GPIO_PORTE_BASE_ADDRESS+GPIO_GPIODIR_OFFSET)))
+#define GPIO_PORTF_GPIODIR          					(*((volatile uint32*)(GPIO_PORTF_BASE_ADDRESS+GPIO_GPIODIR_OFFSET)))
+ 
+#define GPIO_PORTA_GPIODEN          					(*((volatile uint32*)(GPIO_PORTA_BASE_ADDRESS+GPIO_GPIODEN_OFFSET)))
+#define GPIO_PORTB_GPIODEN           					(*((volatile uint32*)(GPIO_PORTB_BASE_ADDRESS+GPIO_GPIODEN_OFFSET)))
+#define GPIO_PORTC_GPIODEN          					(*((volatile uint32*)(GPIO_PORTC_BASE_ADDRESS+GPIO_GPIODEN_OFFSET)))
+#define GPIO_PORTD_GPIODEN           					(*((volatile uint32*)(GPIO_PORTD_BASE_ADDRESS+GPIO_GPIODEN_OFFSET)))
+#define GPIO_PORTE_GPIODEN          					(*((volatile uint32*)(GPIO_PORTE_BASE_ADDRESS+GPIO_GPIODEN_OFFSET)))
+#define GPIO_PORTF_GPIODEN          					(*((volatile uint32*)(GPIO_PORTF_BASE_ADDRESS+GPIO_GPIODEN_OFFSET)))
 /*HMS7OLWTL3S7*/
 
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
