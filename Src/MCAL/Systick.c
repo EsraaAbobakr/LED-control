@@ -4,6 +4,7 @@
 
 #define XTAL_CLOCK_KHZ       16000
 #define SYSTEM_CLOCK_KHZ     DEFAULT_SYSTEM_CLOCK	
+
  const Systick_ConfigType SystickCfg = 
  {
 	  SYSTIC_FREQ_1KHZ     ,
@@ -12,12 +13,12 @@
 	 SYSTIC_INTERRUPT_ENABLE
  } ; 
  	TicksON  = 3;/*TicksON/ SystickCfg.TickFreq ; */
-		TicksOFF = 3;/*TicksOFF/ SystickCfg.TickFreq  ;*/
+	TicksOFF = 3;/*TicksOFF/ SystickCfg.TickFreq  ;*/
 static volatile Systick_TicksType currTicks ;  // currTick +=1 every systic timer wrap [ count =1]
 static Systick_TicksType desiredTicks ;
 
 
- const SysCtr_CLockType SystemClock = SYSTEM_CLOCK_KHZ ; // KHz
+const SysCtr_CLockType SystemClock = SYSTEM_CLOCK_KHZ ; // KHz
 void Systick_Init(void)
 {
 	/* Disable Timer Until configuration completed */
@@ -41,87 +42,45 @@ void Systick_Init(void)
 	//STRELOAD = SystickCfg.TickFreq * SysCtrl_GetSytemClock()  - 1 ;
 	STRELOAD =15999999;/* SystickCfg.TickFreq * SystickCfg.SystemClock -1  ;*/
 }
-
-
-/******************************************************************************
-* \Syntax          : void Systick_Start(Systick_TicksType Ticks)    
-* \Description     : Start systick timer to count Ticks value                             
-*                                                                             
-* \Sync\Async      : Synchronous                                               
-* \Reentrancy      : Non Reentrant                                             
-* \Parameters (in) : Ticks                   
-* \Parameters (out): None                                                      
-* \Return value:   : None
-*                                                              
-*******************************************************************************/
-
 void Systick_Start(Systick_TicksType Ticks)
 {
 	/*Write dummy vale to clear systick current reg */
 	
 	STCURRENT = 0 ; 
-	currTicks = 0 ;
+/*	currTicks = 0 ;*/
 	desiredTicks = Ticks ;
-	
 	STCTRL.EN = 1 ;       //trigger systick timer now
-	
 }
-
-/******************************************************************************
-* \Syntax          : void Systick_Disable(void) 
-* \Description     : Disable systick timer                         
-*                                                                             
-* \Sync\Async      : Synchronous                                               
-* \Reentrancy      : Non Reentrant                                             
-* \Parameters (in) : None                 
-* \Parameters (out): None                                                      
-* \Return value:   : None
-*                                                              
-*******************************************************************************/
 void Systick_Disable(void) 
 {
 	STCTRL.EN = 0 ;
 }
-
-
-/******************************************************************************
-* \Syntax          : Systick_TicksType Systick_GetTicksElapsed(void)
-* \Description     : Get Number of ticks elapsed from Desired Ticks                         
-*                                                                             
-* \Sync\Async      : Synchronous                                               
-* \Reentrancy      : Non Reentrant                                             
-* \Parameters (in) : None                 
-* \Parameters (out): Systick_TicksType                                                     
-* \Return value:   : None
-*                                                              
-*******************************************************************************/
 Systick_TicksType Systick_GetTicksElapsed(void)
 {
 	return currTicks ;
 }
-
-/******************************************************************************
-* \Syntax          : Systick_TicksType Systick_GetTicksRemaining(void)
-* \Description     : Get Number of remaining ticks to reach desired Ticks                         
-*                                                                             
-* \Sync\Async      : Synchronous                                               
-* \Reentrancy      : Non Reentrant                                             
-* \Parameters (in) : None                 
-* \Parameters (out): Systick_TicksType                                                     
-* \Return value:   : None
-*                                                              
-*******************************************************************************/
 Systick_TicksType Systick_GetTicksRemaining(void)
 {
 	return desiredTicks - currTicks ;
 }
-
-
 void SysTick_Handler(void)
 {
 	currTicks ++ ;
-	
+static uint32 statuss=0;
+	static uint32 saaa=5;
+/*	if((currTicks %2)==0&&statuss==0)
+	{saaa++;
+		Led_Turnoff();
+			Systick_Start(10) ;
+		currTicks = 0;
+		statuss==1;
+	}
+	if((currTicks %2)==0&&statuss==1)
+	{
+		Led_TurnOn();
+			Systick_Start(2) ;
+		currTicks = 0;
+		statuss==0;
+	}*/
 }
-/**********************************************************************************************************************
- *  END OF FILE: Systick.c
- *********************************************************************************************************************/
+
