@@ -4,8 +4,8 @@
 
 #include "Std_Types.h"
 
-
-void Blink_Led(uint16,uint16);
+extern void Blink_Led(uint16,uint16);
+extern void Turnonoff(void);
 
  
 #endif 

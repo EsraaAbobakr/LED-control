@@ -1,30 +1,14 @@
 #ifndef LED_H_
 #define LED_H_
-#define 	LED_1			DIO_CONFIG_PORTA_PIN0
+#define LED_1			DIO_CONFIG_PORTA_PIN0
 
-/**********************************************************************************************************************
-* INCLUDES
-*********************************************************************************************************************/
+
 #include "Std_Types.h"
 #include "GPIO_Cfg.h"
-#include "Std_Types.h"
-#include "IntCtrl.h"
-#include "SysCtrl.h"
-/**********************************************************************************************************************
-*  GLOBAL DATA PROTOTYPES
-*********************************************************************************************************************/
-static GpioPorts b=PORTF;
-static GpioPins c=pin1;
-typedef struct {
-	  GpioPorts b;
-	GpioPins c;
-} DIO_CONFIG_PORTA_PIN0;
 
-void Led_TurnOn(void);
-void Led_Turnoff(void);
- void Led_control(uint16,uint16);
+extern void Init_led(void);
+extern void Led_TurnOn(void);
+extern void Led_Turnoff(void);
+
  
- #endif /* LED_H_ */
- /**********************************************************************************************************************
- *  END OF FILE: Led.h
- *********************************************************************************************************************/
+#endif 

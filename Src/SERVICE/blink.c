@@ -1,40 +1,42 @@
 #include "Blink.h"
 #include "LED.h"
-#include "IntCtrl.h"
-#include "SysCtrl.h"
+#include "Systick.h"
 
-void Blink_Led(uint16 TicksON,uint16 TicksOFF)
+uint16 on;
+uint16 off; 
+
+void Turnonoff (void)
 {
-	static init =0;
+	static uint16 CurrTicks=0;
+	CurrTicks++;
+	static uint16 Status=0;
+	if((CurrTicks == off)&&(Status == 0)) /*starting with off time*/
+	{		 
+		Led_TurnOn();
+		Systick_Start(off) ;
+		Status=1;
+	}
+	if((CurrTicks == (on+off))&&(Status == 1))
+	{
+		Led_Turnoff();
+		Systick_Start(on);
+		CurrTicks = 0;
+		Status=0;
+	}	
+}
+
+void Blink_Led(uint16 TickON,uint16 TickOFF)
+{
+	static init = 0;
 	if (init ==0)
-	{ 
-		TicksON  = 0x03;/*TicksON/ SystickCfg.TickFreq ; */
-		TicksOFF = 0x03;/*TicksOFF/ SystickCfg.TickFreq  ;*/
-/*IntCrtl_Init() ;*/	       // Configure Exceptions controls
-		SysCtrl_ClockInit() ;   // Configure System clock
+	{ on=TickON;
+		off=TickOFF;
+		callback(&Turnonoff);
 		Init_led();
-		Systick_Init() ; 
+		Systick_Init();
+		Systick_Start(off);
 		init=1;
 	}
-
-	
-	static uint16 ledStatuss = 0 ;
-	if(ledStatuss ==  0)
-	{
-		Led_TurnOn();
-		Systick_Start(TicksON) ;
-		ledStatuss = 1 ;
-	}
-	if(ledStatuss == 1 && (Systick_GetTicksElapsed() == TicksON))
-	{
-		/*Led_Turnoff();
-		Systick_Start(TicksON) ;
-		ledStatuss = 0;*/
-	}
-	if(ledStatuss == 0 && (Systick_GetTicksElapsed() == TicksOFF))
-	{
-		/*Led_TurnOn();
-		Systick_Start(TicksON) ;
-		ledStatuss = 1;*/
-	}
 }
+
+

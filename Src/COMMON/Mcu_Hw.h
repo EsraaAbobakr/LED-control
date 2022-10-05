@@ -26,16 +26,16 @@
 #define NumberOfPorts  8  
 #define NumberOfPins   8
 
-#define CORE_PERI_BASE                         0xE000E000
+/*#define CORE_PERI_BASE                       0xE000E000*/ /*Cortex-M4F Peripherals (SysTick, NVIC, MPU, FPU and SCB)*/
 #define APINT                                  (*((volatile uint32*)(CORE_PERI_BASE+0xD0C)))
 #define VECTKEY_APINT                          0x05FA
 #define GROUP_TYPE                GROUP_XXY 
 #define NVIC_IQR_ACTIVE_NO         4
 #define ACTIVATED_PERPH_GATES  3
 #define RST_CTRL_BASE                          0x400FE000
-#define STCTRL_OFFSET                          0x10 
-#define STRELOAD_OFFSET                        0x14 
-#define STCURRENT_OFFSET                       0x18 
+/*#define STCTRL_OFFSET                          0x10*/ /*SysTick Control and Status Register*/
+/*#define STRELOAD_OFFSET                        0x14 *//*SysTick Reload Value Register*/
+/*#define STCURRENT_OFFSET                       0x18 *//*SysTick Current Value Registe*/
 
 #define RCC_OFFSET                             0x60
 #define RCC2_OFFSET                            0x70
@@ -49,10 +49,10 @@
 #define XTAL_CLOCK_KHZ       16000
 
 /*regiters stsem tick*/
-#define STCTRL                                 (*((volatile STCTRL_BF*) (CORE_PERI_BASE+STCTRL_OFFSET)))
+/*#define STCTRL                                 (*((volatile STCTRL_BF*) (CORE_PERI_BASE+STCTRL_OFFSET)))
 #define STCURRENT                              (*((volatile uint32*)(CORE_PERI_BASE+STCURRENT_OFFSET)))
-#define STRELOAD                               (*((volatile uint32*)(CORE_PERI_BASE+STRELOAD_OFFSET)))
-	
+#define STRELOAD                               (*((volatile uint32*)(CORE_PERI_BASE+STRELOAD_OFFSET)))*/
+/*	
 typedef struct
 {
 uint32
@@ -63,7 +63,7 @@ uint32
 	        COUNT     :1  ,
 	                  :15 ;
 	
-}STCTRL_BF;
+}STCTRL_BF;*/
 
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS

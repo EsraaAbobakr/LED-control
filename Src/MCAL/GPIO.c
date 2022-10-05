@@ -1,7 +1,7 @@
 #include "GPIO.h"
 #include "GPIO_Cfg.h"
 #include "Port_regs.h"
-void GPIO_Init (uint32 port_, uint32 pin_,uint32 direction_,uint32 level_)
+void GPIO_Init(uint32 port_, uint32 pin_)
 {	
 	SET_BIT(RCGCGPIO, port_);
 	switch(port_)
@@ -25,6 +25,9 @@ void GPIO_Init (uint32 port_, uint32 pin_,uint32 direction_,uint32 level_)
 		break;
 	}
 }
+
+
+
 void Gpio_Dir_set(GpioPorts port, GpioPins pin, GpioPinDirection direction) 
 {	
 	if (direction == gpio_output)
@@ -41,6 +44,7 @@ void Gpio_Dir_set(GpioPorts port, GpioPins pin, GpioPinDirection direction)
 		case 3:
 			SET_BIT(GPIO_PORTD_GPIODIR,pin);
 			break;
+		case 4:
 			SET_BIT(GPIO_PORTE_GPIODIR,pin);
 			break;
 		case 5:
@@ -61,6 +65,7 @@ void Gpio_Dir_set(GpioPorts port, GpioPins pin, GpioPinDirection direction)
 		case 3:
 			CLEAR_BIT(GPIO_PORTD_GPIODIR,pin);
 			break;
+		case 4:
 			CLEAR_BIT(GPIO_PORTE_GPIODIR,pin);
 			break;
 		case 5:
@@ -68,6 +73,9 @@ void Gpio_Dir_set(GpioPorts port, GpioPins pin, GpioPinDirection direction)
 			break;
 		}}
 }
+
+
+
 void Gpio_PinWrite(GpioPorts port, GpioPins pin, GpioPinLevel level) 
 {
 	if (level == gpio_high)
@@ -85,6 +93,7 @@ void Gpio_PinWrite(GpioPorts port, GpioPins pin, GpioPinLevel level)
 		case 3:
 			SET_BIT(GPIO_PORTF_GPIODATA,pin);
 			break;
+		case 4:
 			SET_BIT(GPIO_PORTF_GPIODATA,pin);
 			break;
 		case 5:
@@ -107,6 +116,7 @@ void Gpio_PinWrite(GpioPorts port, GpioPins pin, GpioPinLevel level)
 		case 3:
 			CLEAR_BIT(GPIO_PORTF_GPIODATA,pin);
 			break;
+		case 4:
 			CLEAR_BIT(GPIO_PORTF_GPIODATA,pin);
 			break;
 		case 5:
